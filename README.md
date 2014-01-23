@@ -1,4 +1,4 @@
 word-repeater
 =============
 
-Program to practice memorising by ear
+Program to train your for learning new vocabulary.
