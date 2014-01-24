@@ -17,6 +17,19 @@
       (.start (Thread. #(doto player (.play) (.close)))))))
 
 
+(defn platform []
+  (let [osname (-> (System/getProperties)
+                   (.get "os.name"))]
+    (cond
+     (>= (.indexOf osname "Linux") 0) "Linux"
+     (>= (.indexOf osname "Windows") 0) "Windows"
+     :else "MacOSX")))
+
+(defn config-folder []
+  (-> (-> (System/getProperties) (.get "user.home"))
+      (io/file "Slovak" "Config")
+      (.getPath)))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
